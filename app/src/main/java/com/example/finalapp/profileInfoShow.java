@@ -24,7 +24,7 @@ import java.util.Objects;
 public class profileInfoShow extends AppCompatActivity {
 
     FirebaseAuth mAuth;
-    FirebaseFirestore mStore;
+
     private static final String KEY_NAME = "name";
     private static final String KEY_COLLEGE = "college";
     private static final String KEY_NUMBER = "number";
@@ -39,11 +39,11 @@ public class profileInfoShow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_info_show);
         mAuth = FirebaseAuth.getInstance();
-        mStore = FirebaseFirestore.getInstance();
+
         name1 = (TextView) findViewById(R.id.text1);
         number1 = (TextView) findViewById(R.id.texts2);
         college1 = (TextView) findViewById(R.id.text3);
-        userid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid().toString();
+        userid = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         editprofile = (TextView) findViewById(R.id.textView11);
 
         editprofile.setOnClickListener(new View.OnClickListener() {
